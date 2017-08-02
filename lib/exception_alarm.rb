@@ -15,6 +15,7 @@ module ExceptionAlarmInclusion
       else
         $stderr.puts ExceptionAlarm.mpg123_not_found
       end
+      e.backtrace.select!{|b| !b.include?(__FILE__)}
       raise e
     end
   end
